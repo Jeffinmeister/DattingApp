@@ -27,6 +27,10 @@ import { AlertifyService } from './_services/alertify.service';
 import { UserService } from './_services/user.service';
 import { MemberDetailResolver } from './_resolvers/_member-detail.resolver';
 import { MemberListResolver } from './_resolvers/_member-list.resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/_member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+
 
 
 export function tokkenGetter() {
@@ -43,7 +47,8 @@ export function tokkenGetter() {
       MessagesComponent,
       ListsComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -70,6 +75,8 @@ export function tokkenGetter() {
       UserService,
       MemberDetailResolver,
       MemberListResolver,
+      MemberEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent
