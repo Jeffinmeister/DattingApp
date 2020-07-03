@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DattingApp.API.Helpers;
 using DattingApp.API.Model;
 
 namespace DattingApp.API.Data
@@ -12,7 +13,7 @@ namespace DattingApp.API.Data
 
          Task<bool> SaveAll();  
 
-         Task<IEnumerable<User>> GetUsers();
+         Task<PagedList<User>> GetUsers(UserParams userParams);
          
          Task<User> GetUser(int id);
 

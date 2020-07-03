@@ -8,6 +8,9 @@ namespace DattingApp.API.Dtos
         [Required]
         public string Username { get; set; }
 
+        [Required]
+        public string Gender { get; set; }
+
 
         [Required]
         [StringLength(8, MinimumLength=4, ErrorMessage = "You must have a password between 8 to 14")]    
