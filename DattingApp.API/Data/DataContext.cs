@@ -15,6 +15,7 @@ namespace DattingApp.API.Data
         public DbSet<Photo> Photos  { get; set; }
 
         public DbSet<Like> Likes  { get; set; }
+        public DbSet<Message> Messages  { get; set; }
 
         internal void SeedUsers(DataContext context)
         {
@@ -37,7 +38,21 @@ namespace DattingApp.API.Data
             .WithMany( u => u.Likees)
             .HasForeignKey( u => u.LikerId)
             .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.Entity<Message>()
+            .HasOne(u => u.Sender)
+            .WithMany(u => u.MessagesSent)
+            .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.Entity<Message>()
+            .HasOne(u => u.Recipient)
+            .WithMany(u => u.MessagesReceived)
+            .OnDelete(DeleteBehavior.Restrict);
         }
+
+        
 
         
     }
